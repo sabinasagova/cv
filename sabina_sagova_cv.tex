@@ -1,0 +1,74 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{top=3cm, bottom=3cm, left=3cm, right=3cm}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+% Classic, minimalist title style
+\renewcommand{\familydefault}{\rmdefault} % Use serif font for traditional look
+\titleformat{\section}{\scshape\large\centering}{}{0em}{} % Small caps for section titles
+\titlespacing{\section}{0pt}{10pt}{5pt} % Control section spacing for alignment
+
+% Header and footer with centered name and page
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{\small Curriculum Vitae}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+% Header block with aligned contact information
+\begin{center}
+    {\LARGE Sabína Ságová} \\[0.2cm]
+    \small Date of Birth: 06.09.2000 \\
+    Address: Sartoriova 32/4, 169 00 Prague 6 \\
+    Tel: (+420) 773025571 \\
+    E-mail: \href{mailto:sagovasabina@gmail.com}{sagovasabina@gmail.com}
+\end{center}
+
+\renewcommand{\thefootnote}{}
+\footnotetext{Blink if you want me.}
+\renewcommand{\thefootnote}{\arabic{footnote}} % Reset footnote numbering to default
+
+\vspace{0.8cm} % Reduced space between header and body for compact, elegant layout
+
+\section*{Education}
+\begin{itemize}[left=0pt, label={}]\setlength\itemsep{4pt} % Subtle spacing for compact look
+    \item \textbf{2024 - Master's Degree} \\
+    Faculty of Mathematics and Physics, Charles University in Prague \\
+    Field of Study: \textbf{Artificial Intelligence}
+
+    \item \textbf{2020 - 2024 Bachelor's Degree} \\
+    Faculty of Mathematics and Physics, Charles University in Prague \\
+    Field of Study: \textbf{Computer Science}
+
+\end{itemize}
+
+\section*{Professional Experience}
+\begin{itemize}[left=0pt, label={}]\setlength\itemsep{4pt}
+    \item \textbf{2023 - 2024 Zentiva, k.s.} \\
+    \textbf{IT Trainee} \\
+    Managed incoming tickets in the Zeus system, primarily focusing on serialization, as well as the creation and oversight of master data within IT systems.
+
+    \item \textbf{2023 - 2024 Accenture Central Europe B.V.} \\
+    \textbf{Technology Internship - Business Analyst} \\
+    Contributed as a member of the financial services team, specializing in translation and documentation for core insurance system implementations.
+
+    \item \textbf{2022 - 2023 AQUA HEALTH, s.r.o.} \\
+    \textbf{Administrative Assistant} \\
+    Performed Windows installations, basic PC network setups, minor hardware maintenance, and provided general administrative support.
+\end{itemize}
+
+\section*{Skills}
+\textbf{Language Skills:} Slovak, Czech, English (C1), German (B1) \\
+\textbf{Technical Skills:} Python, Flask, API, Java, JavaScript, SQL, UML, HTML, CSS, Bootstrap, and MS Office (Word, Excel, PowerPoint)
+
+\section*{Additional Interests and Competencies}
+I have a keen interest in fine arts, calligraphy, and music (piano). These interests, combined with my technical knowledge, foster both my creative and analytical sides, essential for a balanced approach in my work and personal development.
+
+\end{document}
