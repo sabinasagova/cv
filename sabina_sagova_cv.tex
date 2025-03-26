@@ -1,74 +1,369 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{geometry}
-\geometry{top=3cm, bottom=3cm, left=3cm, right=3cm}
-\usepackage{parskip}
-\usepackage{titlesec}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{fancyhdr}
+\documentclass[10pt, letterpaper]{article}
 
-% Classic, minimalist title style
-\renewcommand{\familydefault}{\rmdefault} % Use serif font for traditional look
-\titleformat{\section}{\scshape\large\centering}{}{0em}{} % Small caps for section titles
-\titlespacing{\section}{0pt}{10pt}{5pt} % Control section spacing for alignment
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Sabina Sagova's CV},
+    pdfauthor={Sabína Ságová},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
 
-% Header and footer with centered name and page
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\fancyhead[C]{\small Curriculum Vitae}
-\fancyfoot[C]{\thepage}
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small Sabína Ságová - Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in March 2025}\hspace{\widthof{Last updated in March 2025}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
 
 \begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
 
-% Header block with aligned contact information
-\begin{center}
-    {\LARGE Sabína Ságová} \\[0.2cm]
-    \small Date of Birth: 06.09.2000 \\
-    Address: Sartoriova 32/4, 169 00 Prague 6 \\
-    Tel: (+420) 773025571 \\
-    E-mail: \href{mailto:sagovasabina@gmail.com}{sagovasabina@gmail.com}
-\end{center}
+    \placelastupdatedtext
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Sabína Ságová}
 
-\renewcommand{\thefootnote}{}
-\footnotetext{Blink if you want me.}
-\renewcommand{\thefootnote}{\arabic{footnote}} % Reset footnote numbering to default
+        \vspace{0.3 cm}
 
-\vspace{0.8cm} % Reduced space between header and body for compact, elegant layout
+        \normalsize
+        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Prague}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{mailto:sagovasabina@gmail.com}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}sagovasabina@gmail.com}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:+420-773-025-571}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}(+420) 773 025 571}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        %\mbox{\hrefWithoutArrow{https://yourwebsite.com/}{\color{black}{\footnotesize\faLink}\hspace*{0.13cm}yourwebsite.com}}%
+        %\kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/sabinasagova}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}sabinasagova}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://github.com/sabinasagova}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}sabinasagova}}%
+    \end{header}
 
-\section*{Education}
-\begin{itemize}[left=0pt, label={}]\setlength\itemsep{4pt} % Subtle spacing for compact look
-    \item \textbf{2024 - Master's Degree} \\
-    Faculty of Mathematics and Physics, Charles University in Prague \\
-    Field of Study: \textbf{Artificial Intelligence}
+    \vspace{0.3 cm - 0.3 cm}
 
-    \item \textbf{2020 - 2024 Bachelor's Degree} \\
-    Faculty of Mathematics and Physics, Charles University in Prague \\
-    Field of Study: \textbf{Computer Science}
 
-\end{itemize}
 
-\section*{Professional Experience}
-\begin{itemize}[left=0pt, label={}]\setlength\itemsep{4pt}
-    \item \textbf{2023 - 2024 Zentiva, k.s.} \\
-    \textbf{IT Trainee} \\
-    Managed incoming tickets in the Zeus system, primarily focusing on serialization, as well as the creation and oversight of master data within IT systems.
 
-    \item \textbf{2023 - 2024 Accenture Central Europe B.V.} \\
-    \textbf{Technology Internship - Business Analyst} \\
-    Contributed as a member of the financial services team, specializing in translation and documentation for core insurance system implementations.
+    \section{Education}
 
-    \item \textbf{2022 - 2023 AQUA HEALTH, s.r.o.} \\
-    \textbf{Administrative Assistant} \\
-    Performed Windows installations, basic PC network setups, minor hardware maintenance, and provided general administrative support.
-\end{itemize}
+        \begin{twocolentry}{
+            
+            
+        \textit{2024 – 2026}}
+            \textbf{Charles University}
 
-\section*{Skills}
-\textbf{Language Skills:} Slovak, Czech, English (C1), German (B1) \\
-\textbf{Technical Skills:} Python, Flask, API, Java, JavaScript, SQL, UML, HTML, CSS, Bootstrap, and MS Office (Word, Excel, PowerPoint)
+            \textit{Master's degree, Artificial Intelligence}
+        \end{twocolentry}
 
-\section*{Additional Interests and Competencies}
-I have a keen interest in fine arts, calligraphy, and music (piano). These interests, combined with my technical knowledge, foster both my creative and analytical sides, essential for a balanced approach in my work and personal development.
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Coursework:} Data Mining, Social Networks and Their Analysis, Evolutionary Algorithms, Evolutionary Robotics
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.10 cm}
+
+        \begin{twocolentry}{
+            
+            
+        \textit{2020 – 2024}}
+            \textbf{Charles University}
+
+            \textit{Bachelor's degree, Computer Science}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Bachelor thesis: Web application for learning SQL. Available at:  \\https://dspace.cuni.cz/handle/20.500.11956/193103. (\href{https://www.ms.mff.cuni.cz/~sagovas/stranka/frontend/}{Demo Website})
+                \item \textbf{Coursework:} Database Systems, Principles of Data Organization, Programming in Java language, Graph Algorithms, Digital Image Processing, Introduction to Computer Linguistics
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    
+    \section{Experience}
+       \begin{twocolentry}{
+            
+        \textit{Sep 2024 – Sep 2024}}
+            \textbf{Linguistic Annotator (Freelance)}
+            
+            \textit{Institute of Formal and Applied Linguistics, Charles University}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Annotation of Slovak and English texts for a regional QA dataset
+
+            
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+        \begin{twocolentry}{
+            
+        \textit{Jun 2023 – May 2024}}
+            \textbf{IT Trainee}
+            
+            \textit{Zentiva}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Processing of incoming tickets in the Zeus system (mainly serialization)
+                \item Creation and management of master data in IT systems (mainly serialization)
+            
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+
+        
+        \begin{twocolentry}{
+            
+        \textit{Sep 2023 – Feb 2024}}
+            \textbf{Technology internship - Business analyst}
+            
+            \textit{Accenture}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Member of financial services team
+                \item Primary role: translation between English and Czech, translation of insurance core system implementation
+documents (e.g. solution proposals for contacts, contracts, insurance events)
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            
+        \textit{Aug 2022 – May 2023}}
+            \textbf{Administrative Assistant}
+            
+            \textit{AQUA HEALTH, s.r.o.}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Windows installation and basic PC network setup, basic cleaning of PCs and projectors, office cleaning
+                \item Assisting in the processing of accounting
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Projects}
+
+
+
+        
+        \begin{twocolentry}{
+            
+            
+        \textit{\href{https://github.com/sabinasagova/painter}{\footnotesize\faGithub}}}
+            \textbf{Painter}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed a painting application with basic functionalities such as drawing points and various shapes, setting colors, adjusting thickness, and saving images
+                \item Tools Used: Java
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            
+            
+        \textit{\href{https://github.com/sabinasagova/spaceInvaders}{\footnotesize\faGithub}}}
+            \textbf{Space Invaders}
+        \end{twocolentry}
+        \vspace{0.10 cm}
+
+        \begin{onecolentry}
+            \begin{highlights}
+                 \item Developed a Space Invaders game where the player controls a spaceship to shoot approaching aliens while dodging enemy fire, with two shields that change color upon impact and disappear after multiple hits, while also tracking the player's score
+                \item Tools Used: C\#, .NET Framework
+            \end{highlights}
+        \end{onecolentry}
+
+            
+            
+
+    
+    \section{Skills}
+
+
+
+        
+        \begin{onecolentry}
+            \textbf{Languages Skills:} Slovak, Czech, English (C1), German (B1)
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Technical Skills:} Python, Flask, API, Java, JavaScript, SQL, UML, HTML, CSS, Bootstrap
+        \end{onecolentry}
+
+
+    
 
 \end{document}
