@@ -1,0 +1,10 @@
+# Ignore everything by default
+*
+
+# Allow only .tex and .pdf files
+!*.tex
+!*.pdf
+
+# Explicitly ignore .DS_Store even though it's a file
+.DS_Store
+ 
