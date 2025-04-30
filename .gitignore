@@ -1,10 +1,10 @@
-# Ignore everything by default
-*
+# Ignore LaTeX build files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
 
-# Allow only .tex and .pdf files
-!*.tex
-!*.pdf
-
-# Explicitly ignore .DS_Store even though it's a file
-.DS_Store
- 
+# Optional: ignore image if you don't want it in repo
+mdp.png
