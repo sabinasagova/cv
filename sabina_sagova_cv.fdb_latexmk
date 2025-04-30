@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1743269417.67402 "/Users/sabina/CV/sabina_sagova_cv.tex" "sabina_sagova_cv.pdf" "sabina_sagova_cv" 1743269418.20081 0
-  "/Users/sabina/CV/sabina_sagova_cv.tex" 1743269417.57283 11503 3279f41d08fbce7dee905d3c0e981f1d ""
+["pdflatex"] 1744887439.71917 "/Users/sabina/CV/sabina_sagova_cv.tex" "sabina_sagova_cv.pdf" "sabina_sagova_cv" 1744887440.23297 0
+  "/Users/sabina/CV/sabina_sagova_cv.tex" 1744887438.97557 11023 6b4abab275ace8c9941825fea24844b9 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5brands0.enc" 1622837620 2920 d63721872b8c77041b88e51b8f7c291d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free1.enc" 1622837620 3042 0e2b14b9be7d01075a4c4591d5d1781b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc" 1622837620 2906 e48aa7c95dea478a2e011bcb4f7878c9 ""
@@ -118,8 +118,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1729626918.81862 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1729626842 8221431 d92800edd010d7638a01069106880208 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "sabina_sagova_cv.aux" 1743269418.13583 1297 6ab21781fc2f143b4eef5c10151ca5bd "pdflatex"
-  "sabina_sagova_cv.tex" 1743269417.57283 11503 3279f41d08fbce7dee905d3c0e981f1d ""
+  "sabina_sagova_cv.aux" 1744887440.1702 1297 5ef9c0f7a9de08c00a369827a75a4c96 "pdflatex"
+  "sabina_sagova_cv.tex" 1744887438.97557 11023 6b4abab275ace8c9941825fea24844b9 ""
   (generated)
   "sabina_sagova_cv.aux"
   "sabina_sagova_cv.log"

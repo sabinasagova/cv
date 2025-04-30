@@ -201,8 +201,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/omxlmex.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/lmex10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/fontawesome5/fa5free1solid.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmri8.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmri9.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmr9.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmri9.tfm
 INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/fontawesome5/fa5free2.enc
