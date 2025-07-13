@@ -62,7 +62,7 @@
     -1pt
 }{
     % top space:
-    0.3 cm
+    0.2 cm
 }{
     % bottom space:
     0.2 cm
@@ -121,16 +121,6 @@
     \par\kern\topsep
 } % new environment for the header
 
-\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-    \put(
-        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
-        \LenToUnit{\paperheight-1.0 cm}
-    ){\vtop{{\null}\makebox[0pt][c]{
-        \small\color{gray}\textit{Last updated in March 2025}\hspace{\widthof{Last updated in March 2025}}
-    }}}%
-  }%
-}%
 
 % save the original href command in a new command:
 \let\hrefWithoutArrow\href
@@ -147,7 +137,6 @@
     \newsavebox\ANDbox
     \sbox\ANDbox{}
 
-    \placelastupdatedtext
     \begin{header}
         \textbf{\fontsize{24 pt}{24 pt}\selectfont Sabína Ságová}
 
@@ -187,21 +176,12 @@
         \begin{twocolentry}{
             
             
-        \textit{Sep 2024 – Sep 2026}}
+        \textit{Sep 2024 – Present}}
             \textbf{Charles University}
 
             \textit{Master's degree, Artificial Intelligence}
         \end{twocolentry}
-
         \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item \textbf{Coursework:} Data Mining, Social Networks and Their Analysis, Evolutionary Algorithms, Evolutionary Robotics
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.10 cm}
-
         \begin{twocolentry}{
             
             
@@ -220,84 +200,78 @@
         \end{onecolentry}
 
 
-
-    
-    \section{Experience}
-       \begin{twocolentry}{
-            
-        \textit{Sep 2024 – Sep 2024}}
-            \textbf{Linguistic Annotator (Freelance)}
-            
-            \textit{Institute of Formal and Applied Linguistics, Charles University}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Annotation of Slovak and English texts for a regional QA dataset
-
-            
-            \end{highlights}
-        \end{onecolentry}
-
+        \section{Experience}
 
         \vspace{0.2 cm}
-        \begin{twocolentry}{
-            
-        \textit{Jun 2023 – May 2024}}
-            \textbf{IT Trainee}
-            
-            \textit{Zentiva}
+        \begin{twocolentry}{\textit{Jun 2025 – Present}}
+            \textbf{Python Developer}  \\
+            \textit{Valeo}
         \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Processing of incoming tickets.
-                \item Creation and management of master data in IT systems.
-            
-            \end{highlights}
-        \end{onecolentry}
-
-
-        \vspace{0.2 cm}
-
+        
 
         
-        \begin{twocolentry}{
-            
-        \textit{Sep 2023 – Feb 2024}}
-            \textbf{Technology internship - Business analyst}
-            
-            \textit{Accenture}
+        \vspace{0.2 cm}
+        \begin{twocolentry}{\textit{May 2025 – Present}}
+            \textbf{Service Desk Analyst}  \\
+            \textit{Deutsche Börse}
         \end{twocolentry}
 
+        
+        \vspace{0.2 cm}
+        \begin{twocolentry}{\textit{May 2025 – May 2025}}
+            \textbf{Linguistic Evaluator}  \\
+            \textit{Institute of Formal and Applied Linguistics, Charles University}
+        \end{twocolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Manually evaluated regional QA with LLMs
+            \end{highlights}
+        \end{onecolentry}
+        
+        \vspace{0.2 cm}
+        \begin{twocolentry}{\textit{Sep 2024 – Sep 2024}}
+            \textbf{Linguistic Annotator}  \\
+            \textit{Institute of Formal and Applied Linguistics, Charles University}
+        \end{twocolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Annotated Slovak and English texts for a regional QA dataset
+            \end{highlights}
+        \end{onecolentry}
+        
+        \vspace{0.2 cm}
+        \begin{twocolentry}{\textit{Jun 2023 – May 2024}}
+            \textbf{IT Trainee}  \\
+            \textit{Zentiva}
+        \end{twocolentry}
+        
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Processed incoming tickets
+                \item Created and managed master data in IT systems
+            \end{highlights}
+        \end{onecolentry}
+        
+        \vspace{0.2 cm}
+        \begin{twocolentry}{\textit{Sep 2023 – Feb 2024}}
+            \textbf{Technology Internship – Business Analyst}  \\
+            \textit{Accenture}
+        \end{twocolentry}
+        
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
                 \item Member of financial services team
-                \item Primary role: translation of insurance core system implementation documents (English–Czech).
+                \item Translated insurance core system implementation documents (English-Czech)
             \end{highlights}
         \end{onecolentry}
+        
 
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{
-            
-        \textit{Aug 2022 – May 2023}}
-            \textbf{Administrative Assistant}
-            
-            \textit{AQUA HEALTH, s.r.o.}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Assisting in the processing of accounting
-                \item Windows installation and basic PC network setup, maintenance of PCs and projectors.
-            \end{highlights}
-        \end{onecolentry}
 
     \section{Projects}
 
@@ -350,7 +324,7 @@
             \textbf{Languages Skills:} Slovak, Czech, English (C1), German (B1)
         \end{onecolentry}
 
-        \vspace{0.2 cm}
+        \vspace{0.1 cm}
 
         \begin{onecolentry}
             \textbf{Technical Skills:} Python, Flask, API, Java, JavaScript, SQL, UML, HTML, CSS, Bootstrap
