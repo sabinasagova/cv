@@ -1,10 +1,10 @@
-\documentclass[10pt, letterpaper]{article}
+\documentclass[10pt, letterpaper]{extarticle}
 
 % Packages:
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
-    top=2 cm, % seperation between body and page edge from the top
-    bottom=2 cm, % seperation between body and page edge from the bottom
+    top=1.5 cm, % seperation between body and page edge from the top
+    bottom=1.5 cm, % seperation between body and page edge from the bottom
     left=2 cm, % seperation between body and page edge from the left
     right=2 cm, % seperation between body and page edge from the right
     footskip=1.0 cm, % seperation between body and footer
@@ -44,8 +44,6 @@
     \usepackage{lmodern}
 \fi
 
-
-
 % Some settings:
 \AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
 \pagestyle{empty} % no header or footer
@@ -53,7 +51,6 @@
 \setlength{\parindent}{0pt} % no indentation
 \setlength{\topskip}{0pt} % no top skip
 \setlength{\columnsep}{0cm} % set column seperation
-
 
 \titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
 
@@ -93,7 +90,6 @@
     \end{itemize}
 } % new environment for highlights for bullet entries
 
-
 \newenvironment{onecolentry}{
     \begin{adjustwidth}{
         0.2 cm + 0.00001 cm
@@ -121,13 +117,11 @@
     \par\kern\topsep
 } % new environment for the header
 
-
 % save the original href command in a new command:
 \let\hrefWithoutArrow\href
 
 % new command for external links:
 \renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
-
 
 \begin{document}
     \newcommand{\AND}{\unskip
@@ -140,7 +134,7 @@
     \begin{header}
         \textbf{\fontsize{24 pt}{24 pt}\selectfont Sabína Ságová}
 
-        \vspace{0.3 cm}
+        \vspace{0.2 cm}
 
         \normalsize
         \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Prague}%
@@ -168,23 +162,24 @@
 
     \vspace{0.3 cm - 0.3 cm}
 
-
-
-
     \section{Education}
+        \vspace{0.2 cm}
 
         \begin{twocolentry}{
-            
-            
         \textit{Sep 2024 – Present}}
             \textbf{Charles University}
 
             \textit{Master's degree, Artificial Intelligence}
         \end{twocolentry}
-        \vspace{0.20 cm}
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Coursework (selected 2024/2025):} Artificial Intelligence I \& II, Evolutionary Algorithms I \& II, Multiagent Systems, Data Mining, Social Networks and their Analysis, Applications of Neural Networks Theory, Software Engineering for Dependable Systems
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
         \begin{twocolentry}{
-            
-            
         \textit{Sep 2020 – Sep 2024}}
             \textbf{Charles University}
 
@@ -194,93 +189,74 @@
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Bachelor thesis: Web application for learning SQL. Available at:  \\https://dspace.cuni.cz/handle/20.500.11956/193103. (\href{https://www.ms.mff.cuni.cz/~sagovas/stranka/frontend/}{Demo Website})
+                \item \textbf{Bachelor thesis:} Web application for learning SQL. Available at:  \\https://dspace.cuni.cz/handle/20.500.11956/193103. (\href{https://www.ms.mff.cuni.cz/~sagovas/stranka/frontend/}{Demo Website})
                 \item \textbf{Coursework:} Database Systems, Principles of Data Organization, Programming in Java language, Graph Algorithms, Introduction to Cryptography, Digital Image Processing, Introduction to Computer Linguistics
             \end{highlights}
         \end{onecolentry}
 
-
-        \section{Experience}
+    \section{Experience}
 
         \vspace{0.2 cm}
         \begin{twocolentry}{\textit{Jun 2025 – Present}}
-            \textbf{Python Developer}  \\
+            \textbf{Python Developer} \\
             \textit{Valeo}
-        \end{twocolentry}
-        
-
-        
-        \vspace{0.2 cm}
-        \begin{twocolentry}{\textit{May 2025 – Present}}
-            \textbf{Service Desk Analyst}  \\
-            \textit{Deutsche Börse}
-        \end{twocolentry}
-
-        
-        \vspace{0.2 cm}
-        \begin{twocolentry}{\textit{May 2025 – May 2025}}
-            \textbf{Linguistic Evaluator}  \\
-            \textit{Institute of Formal and Applied Linguistics, Charles University}
         \end{twocolentry}
         
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Manually evaluated regional QA with LLMs
+                \item Testing, automation, data processing and mining
+                \item Orchestration of toolchain (ADAS, front camera)
+                \item Working with analytics, statistics
             \end{highlights}
         \end{onecolentry}
         
         \vspace{0.2 cm}
-        \begin{twocolentry}{\textit{Sep 2024 – Sep 2024}}
-            \textbf{Linguistic Annotator}  \\
-            \textit{Institute of Formal and Applied Linguistics, Charles University}
+        \begin{twocolentry}{\textit{May 2025 – Present}}
+            \textbf{Service Desk Analyst} \\
+            \textit{Deutsche Börse Group}
         \end{twocolentry}
         
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Annotated Slovak and English texts for a regional QA dataset
+                \item Ticket creation in SAP CRM for Level 1 support 
+                \item Administrative support for internal teams and projects
+                \item Contact information maintenance in SAP
             \end{highlights}
         \end{onecolentry}
         
         \vspace{0.2 cm}
         \begin{twocolentry}{\textit{Jun 2023 – May 2024}}
-            \textbf{IT Trainee}  \\
+            \textbf{IT Trainee} \\
             \textit{Zentiva}
         \end{twocolentry}
         
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Processed incoming tickets
+                \item Processed incoming tickets (Incident Management)
                 \item Created and managed master data in IT systems
             \end{highlights}
         \end{onecolentry}
         
         \vspace{0.2 cm}
         \begin{twocolentry}{\textit{Sep 2023 – Feb 2024}}
-            \textbf{Technology Internship - Business Analyst}  \\
+            \textbf{Technology Internship - Business Analyst} \\
             \textit{Accenture}
         \end{twocolentry}
         
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Member of financial services team
+                \item Was a member of the financial services team
                 \item Translated insurance core system implementation documents (English-Czech)
             \end{highlights}
         \end{onecolentry}
-        
-
 
     \section{Projects}
 
-
-
-        
         \begin{twocolentry}{
-            
-            
         \textit{\href{https://github.com/sabinasagova/painter}{\footnotesize\faGithub}}}
             \textbf{Painter}
         \end{twocolentry}
@@ -288,49 +264,37 @@
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Developed a painting application with basic functionalities such as drawing points and various shapes, setting colors, adjusting thickness, and saving images
-                \item Tools Used: Java
+                \item Developed a painting application with basic functionalities such as drawing points and various shapes, setting colors, adjusting thickness, and saving images. \underline{Tools Used:} Java.
             \end{highlights}
         \end{onecolentry}
 
-
         \vspace{0.2 cm}
-
         \begin{twocolentry}{
-            
-            
         \textit{\href{https://github.com/sabinasagova/spaceInvaders}{\footnotesize\faGithub}}}
             \textbf{Space Invaders}
         \end{twocolentry}
-        \vspace{0.10 cm}
 
+        \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                 \item Developed a Space Invaders game where the player controls a spaceship to shoot approaching aliens while dodging enemy fire, with two shields that change color upon impact and disappear after multiple hits, while also tracking the player's score
-                \item Tools Used: C\#, .NET Framework
+                 \item Developed a Space Invaders game where the player controls a spaceship to shoot approaching aliens while dodging enemy fire, with two shields that change color upon impact and disappear after multiple hits, while also tracking the player's score. \underline{Tools Used:} C\#, .NET Framework.
             \end{highlights}
         \end{onecolentry}
 
-            
-            
-
-    
     \section{Skills}
 
+          
+    \begin{onecolentry}
+        \textbf{Languages Skills:} Slovak, Czech, English (C1), German (B1)
+    \end{onecolentry}
+
+    \vspace{0.1 cm}
+
+    \begin{onecolentry}
+        \textbf{Technical Skills:} Python, Flask, API, Java, JavaScript, SQL, UML, HTML, CSS, Bootstrap
+    \end{onecolentry}
 
 
-        
-        \begin{onecolentry}
-            \textbf{Languages Skills:} Slovak, Czech, English (C1), German (B1)
-        \end{onecolentry}
 
-        \vspace{0.2 cm}
-
-        \begin{onecolentry}
-            \textbf{Technical Skills:} Python, Flask, API, Java, JavaScript, SQL, UML, HTML, CSS, Bootstrap
-        \end{onecolentry}
-
-
-    
 
 \end{document}
